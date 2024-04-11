@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.GangweiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.GangweiEntity" id="gangweiMap">
+        <result property="gangwei" column="gangwei"/>
+        <result property="gangweirenshu" column="gangweirenshu"/>
+        <result property="gangweijianjie" column="gangweijianjie"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.GangweiVO" >
+		SELECT * FROM gangwei  gangwei         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.GangweiVO" >
+		SELECT  gangwei.* FROM gangwei  gangwei 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.GangweiView" >
+
+		SELECT  gangwei.* FROM gangwei  gangwei 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.GangweiView" >
+		SELECT * FROM gangwei  gangwei <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
